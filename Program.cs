@@ -14,16 +14,27 @@ namespace UserRegistrationProblem
             string lastName = Console.ReadLine();
             Console.WriteLine("Enter the email id");
             string email = Console.ReadLine();
-            Console.WriteLine("Enter the mobile number");
+            Console.WriteLine("Enter the mobile number with country code in the beginning");
             string mobileNum = Console.ReadLine();
+            Console.WriteLine("Enter the password");
+            string password = null;
+            while (true)
+            {
+                var key = System.Console.ReadKey(true);
+                if (key.Key == ConsoleKey.Enter)
+                    break;
+                password += key.KeyChar;
+            }
 
             string nameRegexPattern = "[A-Z][a-z]{2,}";
             string emailRegexPattern = "^[a-zA-Z0-9]+([+-_.][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]+([.][a-zA-Z]{2})*$";
             string mobileNumRegexPattern = "^[0-9]{2}[ ][0-9]{10}$";
+            string passwordRegexPattern = "[a-zA-z0-9]{7,}";
 
             Regex nameRegex = new Regex(nameRegexPattern);
             Regex emailRegex = new Regex(emailRegexPattern);
             Regex mobileNumRegex = new Regex(mobileNumRegexPattern);
+            Regex passwordRegex = new Regex(passwordRegexPattern);
 
             if (nameRegex.IsMatch(firstName) && nameRegex.IsMatch(lastName))
                 Console.WriteLine("Name entered is valid");
@@ -37,6 +48,10 @@ namespace UserRegistrationProblem
                 Console.WriteLine("The entered mobile number is valid");
             else
                 Console.WriteLine("The entered mobile number is invalid");
+            if (passwordRegex.IsMatch(password))
+                Console.WriteLine("The password is valid");
+            else
+                Console.WriteLine("The password is invalid");
 
         }
     }
