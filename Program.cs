@@ -25,11 +25,12 @@ namespace UserRegistrationProblem
                     break;
                 password += key.KeyChar;
             }
+            Console.WriteLine(password);
 
             string nameRegexPattern = "[A-Z][a-z]{2,}";
             string emailRegexPattern = "^[a-zA-Z0-9]+([+-_.][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]+([.][a-zA-Z]{2})*$";
             string mobileNumRegexPattern = "^[0-9]{2}[ ][0-9]{10}$";
-            string passwordRegexPattern = "[a-zA-z0-9]{7,}";
+            string passwordRegexPattern = "^(=?.*[A-Z]).{8,}$";
 
             Regex nameRegex = new Regex(nameRegexPattern);
             Regex emailRegex = new Regex(emailRegexPattern);
