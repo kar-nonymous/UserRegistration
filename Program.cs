@@ -25,7 +25,7 @@ namespace UserRegistrationProblem
                     break;
                 password += key.KeyChar;
             }
-            Console.WriteLine(password);
+            
 
             string nameRegexPattern = "[A-Z][a-z]{2,}";
             string emailRegexPattern = "^[a-zA-Z0-9]+([+-_.][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]+([.][a-zA-Z]{2})*$";
